@@ -81,8 +81,7 @@ orgs.newOrg('eclipse-tycho') {
           required_approving_review_count: 0,
           required_status_checks+: [
             "continuous-integration/jenkins/pr-head",
-            "eclipsefdn/eca",
-            "License vetting status check"
+            "call-license-check / check-licenses"
           ],
           requires_commit_signatures: false,
           requires_last_push_approval: false,
