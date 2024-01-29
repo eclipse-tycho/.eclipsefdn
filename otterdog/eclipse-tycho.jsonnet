@@ -38,18 +38,21 @@ orgs.newOrg('eclipse-tycho') {
       ],
     },
     orgs.newRepo('tycho') {
-      allow_merge_commit: true,
+      allow_auto_merge: true,
+      allow_merge_commit: false,
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       description: "Tycho project repository (tycho)",
       has_discussions: true,
-      homepage: "",
+      homepage: "https://tycho.eclipseprojects.io",
       secret_scanning: "enabled",
       secret_scanning_push_protection: "enabled",
       topics+: [
         "build-tool",
         "eclipse",
-        "java"
+        "java",
+        "maven",
+        "OSGi"
       ],
       web_commit_signoff_required: false,
       workflows+: {
@@ -64,6 +67,26 @@ orgs.newOrg('eclipse-tycho') {
         },
         orgs.newRepoSecret('TYCHO_SITE_PAT') {
           value: "********",
+        },
+      ],
+      rulesets: [
+        orgs.newRepoRuleset('main') {
+          allows_updates: true,
+          bypass_actors+: [
+            "@eclipse-tycho/technology-tycho-committers"
+          ],
+          include_refs+: [
+            "refs/heads/main",
+          ],
+          required_approving_review_count: 0,
+          required_status_checks+: [
+            "continuous-integration/jenkins/pr-head",
+            "eclipsefdn/eca",
+            "License vetting status check"
+          ],
+          requires_commit_signatures: false,
+          requires_last_push_approval: false,
+          requires_review_thread_resolution: false,
         },
       ],
     },
