@@ -52,7 +52,7 @@ orgs.newOrg('eclipse-tycho') {
         "eclipse",
         "java",
         "maven",
-        "OSGi"
+        "osgi"
       ],
       web_commit_signoff_required: false,
       workflows+: {
@@ -73,7 +73,7 @@ orgs.newOrg('eclipse-tycho') {
         orgs.newRepoRuleset('main') {
           allows_updates: true,
           bypass_actors+: [
-            "@eclipse-tycho/technology-tycho-committers"
+            "#Write"
           ],
           include_refs+: [
             "refs/heads/main",
