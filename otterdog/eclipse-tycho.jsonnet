@@ -70,13 +70,16 @@ orgs.newOrg('eclipse-tycho') {
         },
       ],
       rulesets: [
-        orgs.newRepoRuleset('main') {
+        orgs.newRepoRuleset('release-branches') {
           allows_updates: true,
           bypass_actors+: [
             "#Write"
           ],
           include_refs+: [
             "refs/heads/main",
+            "refs/heads/tycho-4.0.x",
+            "refs/heads/tycho-3.0.x",
+            "refs/heads/tycho-2.7.x",
           ],
           required_approving_review_count: 0,
           required_status_checks+: [
