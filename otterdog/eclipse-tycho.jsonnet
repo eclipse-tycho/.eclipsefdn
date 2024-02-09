@@ -87,6 +87,23 @@ orgs.newOrg('eclipse-tycho') {
           requires_last_push_approval: false,
           requires_review_thread_resolution: false,
         },
+        orgs.newRepoRuleset('tycho-4.0.x') {
+          allows_updates: true,
+          bypass_actors+: [
+            "#Write"
+          ],
+          include_refs+: [
+            "refs/heads/tycho-4.0.x",
+          ],
+          required_approving_review_count: 0,
+          required_status_checks+: [
+            "continuous-integration/jenkins/pr-head",
+            "call-license-check / check-licenses"
+          ],
+          requires_commit_signatures: false,
+          requires_last_push_approval: false,
+          requires_review_thread_resolution: false,
+        },
       ],
     },
   ],
