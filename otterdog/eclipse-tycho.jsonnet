@@ -66,6 +66,9 @@ orgs.newOrg('eclipse-tycho') {
         orgs.newRepoSecret('TYCHO_SITE_PAT') {
           value: "********",
         },
+        orgs.newRepoSecret('TYCHO_BACKPORT_PAT') {
+          value: "********",
+        },
       ],
       rulesets: [
         orgs.newRepoRuleset('release-branches') {
