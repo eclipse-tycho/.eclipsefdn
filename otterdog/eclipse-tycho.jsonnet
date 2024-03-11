@@ -19,8 +19,6 @@ orgs.newOrg('eclipse-tycho') {
       gh_pages_build_type: "legacy",
       gh_pages_source_branch: "main",
       gh_pages_source_path: "/",
-      secret_scanning: "enabled",
-      secret_scanning_push_protection: "enabled",
       web_commit_signoff_required: false,
       workflows+: {
         default_workflow_permissions: "write",
@@ -37,14 +35,11 @@ orgs.newOrg('eclipse-tycho') {
     },
     orgs.newRepo('tycho') {
       allow_auto_merge: true,
-      allow_merge_commit: false,
       delete_branch_on_merge: false,
       dependabot_security_updates_enabled: true,
       description: "Tycho project repository (tycho)",
       has_discussions: true,
       homepage: "https://tycho.eclipseprojects.io",
-      secret_scanning: "enabled",
-      secret_scanning_push_protection: "enabled",
       topics+: [
         "build-tool",
         "eclipse",
@@ -75,14 +70,14 @@ orgs.newOrg('eclipse-tycho') {
           ],
           include_refs+: [
             "refs/heads/main",
-            "refs/heads/tycho-4.0.x",
-            "refs/heads/tycho-3.0.x",
             "refs/heads/tycho-2.7.x",
+            "refs/heads/tycho-3.0.x",
+            "refs/heads/tycho-4.0.x"
           ],
           required_approving_review_count: 0,
           required_status_checks+: [
-            "continuous-integration/jenkins/pr-head",
-            "call-license-check / check-licenses"
+            "call-license-check / check-licenses",
+            "continuous-integration/jenkins/pr-head"
           ],
           requires_commit_signatures: false,
           requires_last_push_approval: false,
