@@ -54,7 +54,7 @@ orgs.newOrg('eclipse-tycho') {
           value: "********",
         },
         orgs.newRepoSecret('TYCHO_GITLAB_API_TOKEN') {
-          value: "********",
+          value: "pass:bots/technology.tycho/gitlab.eclipse.org/api-token",
         },
         orgs.newRepoSecret('TYCHO_SITE_PAT') {
           value: "********",
