@@ -75,10 +75,12 @@ orgs.newOrg('eclipse-tycho') {
             required_approving_review_count: 0,
             dismisses_stale_reviews: true,
           },
-          required_status_checks+: [
-            "call-license-check / check-licenses",
-            "continuous-integration/jenkins/pr-head"
-          ],
+          required_status_checks+: {
+            status_checks+: [
+              "call-license-check / check-licenses",
+              "continuous-integration/jenkins/pr-head"
+            ],
+          },
         },
       ],
     },
