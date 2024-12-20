@@ -1,6 +1,6 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
-orgs.newOrg('eclipse-tycho') {
+orgs.newOrg('technology.tycho', 'eclipse-tycho') {
   settings+: {
     description: "",
     name: "Eclipse Tycho™",
