@@ -1,6 +1,15 @@
 local orgs = import 'vendor/otterdog-defaults/otterdog-defaults.libsonnet';
 
 orgs.newOrg('technology.tycho', 'eclipse-tycho') {
+  webhooks+: [
+    orgs.newOrgWebhook('https://ci.eclipse.org/tycho/github-webhook/') {
+      content_type: "json",
+      events+: [
+        "pull_request",
+        "push"
+      ],
+    },
+  ],
   settings+: {
     description: "",
     name: "Eclipse Tycho™",
