@@ -42,7 +42,7 @@ orgs.newOrg('technology.tycho', 'eclipse-tycho') {
     },
     orgs.newRepo('tycho') {
       allow_auto_merge: true,
-      delete_branch_on_merge: false,
+      delete_branch_on_merge: true,
       dependabot_security_updates_enabled: true,
       description: "Tycho project repository (tycho)",
       has_discussions: true,
